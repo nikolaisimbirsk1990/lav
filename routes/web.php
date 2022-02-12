@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-Route::get('/contact/{id}', function ($id) {
-    return view('contact');
-});
+Route::get('/', 'App\Http\Controllers\MainController@home');
+
+Route::get('/review', 'App\Http\Controllers\MainController@review');
+
+Route::post('/review/check', 'App\Http\Controllers\MainController@review_check');
